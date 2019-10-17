@@ -42,11 +42,13 @@ public class Proof_4digitsKaprekarNum {
         System.out.println("\nStart proof......");
         for (int i = 0; i <= 9999; i++) {
             if (dArray[i] != 0) {
+                System.out.print(dArray[i]);
                 if (!search(i)) {
                     System.out.println("Out!    i=" + i + ", num:" + dArray[i]);
                 }
             }
             if (i == 9999) {
+                System.out.println();
                 if (candKaprekar.size() == 1) {
                     for (int Kap : candKaprekar) {
                         System.out.println("Kaprekar Number is only " + Kap);
@@ -65,13 +67,16 @@ public class Proof_4digitsKaprekarNum {
 
     public static boolean search(int num) {
         if (dArray[num] == sortdiff(dArray[num])) {
+            System.out.println(" → "+dArray[num]+" ○");
             candKaprekar.add(dArray[num]);
             return true;
         } else if (dArray[num] == 0) {
+            System.out.print(" → ×");
             System.out.println(num);
             return false;
         } else {
             int diff = sortdiff(dArray[num]);
+            System.out.print(" → "+diff);
             return search(sort(diff));
         }
     }
