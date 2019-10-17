@@ -102,4 +102,3 @@ public class Proof_4digitsKaprekarNum {
         return Num;
     }
 }
-
