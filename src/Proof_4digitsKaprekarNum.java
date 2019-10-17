@@ -38,7 +38,7 @@ public class Proof_4digitsKaprekarNum {
             }
         }
 
-        /*カプレア数が一意に定まり、かつそれが6174であることの証明*/
+        /*カプレカ数が一意に定まり、かつそれが6174であることの証明*/
         System.out.println("\nStart proof......");
         for (int i = 0; i <= 9999; i++) {
             if (dArray[i] != 0) {
