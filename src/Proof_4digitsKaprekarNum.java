@@ -1,10 +1,15 @@
-import java.util.Arrays;
+import java.util.*;
 import java.util.Collections;
 
 public class Proof_4digitsKaprekarNum {
     public static int[] dArray = new int[10000];
+    public static HashSet<Integer> candKaprekar = new HashSet<Integer>();
 
     public static void main(String args[]) {
+        System.out.println("最大の数：M, 最小の数との差：D");
+        System.out.println("\tM\t：\tD");
+
+        /*４桁の自然数からできる最大の数と、最大の数と最小の数との差の対応*/
         int a, b, c, d;
         int diff;
         for (int i = 0; i <= 9999; i++) {
@@ -27,11 +32,14 @@ public class Proof_4digitsKaprekarNum {
                         diff = sortdiff(Num);
 
                         dArray[Num] = diff;
-                        System.out.println(Num+ "：" + diff);
+                        System.out.println(Num + "\t：\t" + diff);
                     }
                 }
             }
         }
+
+        /*カプレア数が一意に定まり、かつそれが6174であることの証明*/
+        System.out.println("\nStart proof......");
         for (int i = 0; i <= 9999; i++) {
             if (dArray[i] != 0) {
                 if (!search(i)) {
@@ -39,7 +47,16 @@ public class Proof_4digitsKaprekarNum {
                 }
             }
             if (i == 9999) {
-                System.out.println("Comp!");
+                if (candKaprekar.size() == 1) {
+                    for (int Kap : candKaprekar) {
+                        System.out.println("Kaprekar Number is only " + Kap);
+                    }
+                } else {
+                    for (int Kap : candKaprekar) {
+                        System.out.println("Kaprekar Number is " + Kap);
+                    }
+                }
+                System.out.println("Complete!");
             }
         }
 
@@ -47,7 +64,8 @@ public class Proof_4digitsKaprekarNum {
     }
 
     public static boolean search(int num) {
-        if (dArray[num] == 6174) {
+        if (dArray[num] == sortdiff(dArray[num])) {
+            candKaprekar.add(dArray[num]);
             return true;
         } else if (dArray[num] == 0) {
             System.out.println(num);
