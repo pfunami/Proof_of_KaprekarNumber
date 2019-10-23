@@ -25,12 +25,11 @@ public class Proof_4digitsKaprekarNum {
                         continue;
                     }
                     for (d = 0; d <= 9; d++) {
-                        if (d > c || a == d) {
+                        int Num = 1000 * a + 100 * b + 10 * c + d;
+                        if (d > c || a == d || Num % 9 != 0) {
                             continue;
                         }
-                        int Num = 1000 * a + 100 * b + 10 * c + d;
                         diff = sortdiff(Num);
-
                         dArray[Num] = diff;
                         System.out.println(Num + "\t：\t" + diff);
                     }
@@ -62,12 +61,11 @@ public class Proof_4digitsKaprekarNum {
             }
         }
 
-
     }
 
     public static boolean search(int num) {
         if (dArray[num] == sortdiff(dArray[num])) {
-            System.out.println(" → "+dArray[num]+" ○");
+            System.out.println(" → " + dArray[num] + " ○");
             candKaprekar.add(dArray[num]);
             return true;
         } else if (dArray[num] == 0) {
@@ -76,7 +74,7 @@ public class Proof_4digitsKaprekarNum {
             return false;
         } else {
             int diff = sortdiff(dArray[num]);
-            System.out.print(" → "+diff);
+            System.out.print(" → " + diff);
             return search(sort(diff));
         }
     }

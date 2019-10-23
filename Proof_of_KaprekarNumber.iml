@@ -7,6 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="module-library">
       <library name="ethereumj">
         <CLASSES>
@@ -17,7 +19,5 @@
         <jarDirectory url="file:///usr/local/bin/lib" recursive="true" />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="R User Library" level="project" />
-    <orderEntry type="library" name="R Skeletons" level="application" />
   </component>
 </module>
