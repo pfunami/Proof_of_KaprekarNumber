@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Collections;
 
 public class Proof_4digitsKaprekarNum {
     public static int[] dArray = new int[10000];
